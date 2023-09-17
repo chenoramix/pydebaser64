@@ -45,11 +45,9 @@ def main():
         print(f"Directory {path} is not accessible")
         sys.exit(1)
 
-    """
-    file = os.path.join(path, "test.txt")
-    file_out = os.path.join(path, "test_enc.txt")
-    encode_file(file, file_out)
-    """
+    # file = os.path.join(path, "test.jpg")
+    # file_out = os.path.join(path, "test_enc.txt")
+    # encode_file(file, file_out)
 
     # data is base64 string
     data = data.encode("utf-8")
