@@ -46,13 +46,24 @@ def main():
 
     # encode_text(data, path)
 
-    # change directory
-    os.chdir(sys.argv[1])
-    
-    str_txt = "test".encode("ascii")
+    # data is base64 string
 
-    data = base64.b64encode(str_txt)
     decoded_data = base64.b64decode(data)
+    index = 0
+
+    while True:
+        full_path = os.path.join(path, "decoded-" + str(index) + ".txt")
+        if os.path.isfile(full_path):
+            index = index + 1
+            continue
+        else:
+            try:
+                with open(full_path, "wb") as file:
+                    file.write(decoded_data)
+                    break
+            except IOError:
+                print("Can't write to file, IOError")
+                sys.exit(1)
 
 
 if __name__ == "__main__":
