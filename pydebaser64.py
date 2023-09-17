@@ -16,7 +16,7 @@ def encode_text(text, path):
 
 
 def main():
-    print("Debaser64 1.0 Python Edition")
+    print("Debaser64 1.0 Python Edition\n")
 
     # check number or arguments
     if len(sys.argv) != 2:
