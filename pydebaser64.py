@@ -5,13 +5,14 @@ import base64
 import pyperclip
 
 """
-def encode_text(text, path):
-    message = text.encode("ascii")
-    base64_bytes = base64.b64encode(message)
-    path = os.path.join(path, "encoded.txt")
+def encode_file(file, file_out):
+    message = ""
+    with open(file, "rb") as f:
+        data = f.read()
+        message = base64.b64encode(data)
 
-    with open(path, "wb") as f:
-        f.write(base64_bytes)
+    with open(file_out, "wb") as f:
+        f.write(message)
 """
 
 
@@ -44,10 +45,15 @@ def main():
         print(f"Directory {path} is not accessible")
         sys.exit(1)
 
-    # encode_text(data, path)
+    """
+    file = os.path.join(path, "test.txt")
+    file_out = os.path.join(path, "test_enc.txt")
+    encode_file(file, file_out)
+    """
 
     # data is base64 string
-    decoded_data = base64.b64decode(data)
+    data = data.encode("utf-8")
+    decoded_data = base64.decodebytes(data)
     index = 0
 
     while True:
