@@ -47,7 +47,6 @@ def main():
     # encode_text(data, path)
 
     # data is base64 string
-
     decoded_data = base64.b64decode(data)
     index = 0
 
@@ -64,6 +63,8 @@ def main():
             except IOError:
                 print("Can't write to file, IOError")
                 sys.exit(1)
+
+    print("Decoded succesfully")
 
 
 if __name__ == "__main__":
